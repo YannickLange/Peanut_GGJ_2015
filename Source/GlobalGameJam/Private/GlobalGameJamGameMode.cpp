@@ -3,6 +3,7 @@
 #include "GlobalGameJam.h"
 #include "GlobalGameJamGameMode.h"
 #include "GlobalGameJamCharacter.h"
+#include "Robot.h"
 
 AGlobalGameJamGameMode::AGlobalGameJamGameMode(const FObjectInitializer& ObjectInitializer)
 	: Super(ObjectInitializer)
@@ -13,4 +14,18 @@ AGlobalGameJamGameMode::AGlobalGameJamGameMode(const FObjectInitializer& ObjectI
 	{
 		DefaultPawnClass = PlayerPawnBPClass.Class;
 	}
+
+	static ConstructorHelpers::FClassFinder<ARobot> RobotPawnBPClass(TEXT("/Game/Blueprints/Robot"));
+	RobotCharacter = RobotPawnBPClass.Class;
+}
+
+void AGlobalGameJamGameMode::BeginPlay()
+{
+	FString OutError;
+	UGameViewportClient* Viewport = GetWorld()->GetGameViewport();	
+	
+	DefaultPawnClass = RobotCharacter;
+	Viewport->CreatePlayer(1, OutError, true);
+	Viewport->CreatePlayer(2, OutError, true);
+	Viewport->CreatePlayer(3, OutError, true);
 }

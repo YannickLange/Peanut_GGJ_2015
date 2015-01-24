@@ -7,9 +7,15 @@ UCLASS(minimalapi)
 class AGlobalGameJamGameMode : public AGameMode
 {
 	GENERATED_BODY()
+	
+	virtual void BeginPlay();
 
 public:
 	AGlobalGameJamGameMode(const FObjectInitializer& ObjectInitializer);
+
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = RobotPawn)
+	TSubclassOf<APawn> RobotCharacter;
+
 };
 
 

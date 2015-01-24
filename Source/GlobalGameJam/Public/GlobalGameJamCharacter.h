@@ -26,6 +26,8 @@ public:
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category=Camera)
 	float BaseLookUpRate;
 
+	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category = ElementColor)
+	FColor ElementColor;
 protected:
 
 	/** Called for forwards/backward input */

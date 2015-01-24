@@ -4,4 +4,4 @@
 
 
 IMPLEMENT_PRIMARY_GAME_MODULE( FDefaultGameModuleImpl, GlobalGameJam, "GlobalGameJam" );
- 
+DEFINE_LOG_CATEGORY(GGJ)

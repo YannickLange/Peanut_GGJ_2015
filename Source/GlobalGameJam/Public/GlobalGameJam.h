@@ -4,5 +4,6 @@
 #define __GLOBALGAMEJAM_H__
 
 #include "EngineMinimal.h"
+DECLARE_LOG_CATEGORY_EXTERN(GGJ, Log, All);
 
 #endif
