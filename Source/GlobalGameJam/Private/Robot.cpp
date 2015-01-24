@@ -88,6 +88,11 @@ void ARobot::AimY(float Value)
 
 void ARobot::TickLaser(float DeltaSeconds)
 {
+	if (AimLocation.X == 0 && AimLocation.Y == 0)
+	{
+		return;
+	}
+	
 	FVector AimWorldLocation = GetActorLocation();
 	AimWorldLocation.Y -= AimLocation.X;
 	AimWorldLocation.X += AimLocation.Y;
